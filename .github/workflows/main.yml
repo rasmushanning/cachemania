@@ -1,0 +1,23 @@
+name: Main workflow
+
+on: push
+
+jobs:
+  lint:
+    name: Lint the code
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Linting code" # Lint the code here
+  build:
+    name: Build the code
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building code" # Build the code here    
+  test:
+    name: Test the code
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Testing code" # Test the code here
+       
